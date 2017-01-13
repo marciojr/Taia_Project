@@ -1,0 +1,12 @@
+import urllib
+import json
+ 
+url = "https://gdata.youtube.com/feeds/api/videos?q=SEARCH_QUERY&key=YOUR_API_KEY&orderby=viewCount&max-results=50&v=2&alt=json"
+ 
+		feed = urllib.urlopen(url)
+		feed = feed.read()
+		feed_json = json.loads(feed)
+ 
+		for feed in feed_json['feed']['entry']:
+    Video_title = feed['title']['$t']
+    print Video_title
